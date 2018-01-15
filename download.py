@@ -3,10 +3,14 @@
 import urllib.request
 import re
 from bs4 import BeautifulSoup
+import os
 #<span class="thispage" data-total-page="131">1</span>
 y=1
 
-for y in range(1,60):
+saveDir = "D:\\kk\\"
+if not os.path.isdir(saveDir):
+    os.makedirs(saveDir)
+for y in range(1,6):
     page=(y-1)*30
     url="https://movie.douban.com/celebrity/1012533/photos/?type=C&start=%s&sortby=like&size=a&subtype=a" %page
     content=urllib.request.urlopen(url).read()
